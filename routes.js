@@ -11,4 +11,6 @@ module.exports = function (app) {
   app.route("/Send").post(myJson.postData);
 
   app.route("/Update/:id").put(myJson.updateData);
+
+  app.route("/Delete/:id").delete(myJson.deleteData);
 };

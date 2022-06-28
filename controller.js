@@ -67,3 +67,18 @@ exports.updateData = (req, res) => {
     }
   );
 };
+
+exports.deleteData = (req, res) => {
+  let id = req.params.id;
+  connection.query(
+    "DELETE FROM mahasiswa where id_mahasiswa= ?",
+    [id],
+    (error, rows, fields) => {
+      if (error) {
+        console.log(error);
+      } else {
+        response.ok("berhasil hapus data", res);
+      }
+    }
+  );
+};
