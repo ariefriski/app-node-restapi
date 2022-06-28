@@ -2,7 +2,6 @@
 
 var response = require("./res");
 
-var connect = require("./koneksi");
 const connection = require("./koneksi");
 
 exports.index = function (req, res) {
@@ -33,3 +32,21 @@ exports.getByIndex = function (req, res) {
     }
   );
 };
+
+exports.postData = (req, res) => {
+  let nim = req.body.nim;
+  let nama = req.body.nama;
+  let jurusan = req.body.jurusan;
+  connection.query(
+    "INSERT INTO mahasiswa (nim,nama,jurusan) VALUES (?,?,?)",
+    [nim, nama, jurusan],
+    (error, rows, fields) => {
+      if (error) {
+        console.log(error);
+      } else {
+        response.ok("Berhasi input data", res);
+      }
+    }
+  );
+};
+

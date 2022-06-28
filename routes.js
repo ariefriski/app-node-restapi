@@ -7,4 +7,6 @@ module.exports = function (app) {
   app.route("/getAll").get(myJson.getAllData);
 
   app.route("/getIndex/:id").get(myJson.getByIndex);
+
+  app.route("/Send").post(myJson.postData);
 };
