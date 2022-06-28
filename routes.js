@@ -9,4 +9,6 @@ module.exports = function (app) {
   app.route("/getIndex/:id").get(myJson.getByIndex);
 
   app.route("/Send").post(myJson.postData);
+
+  app.route("/Update/:id").put(myJson.updateData);
 };

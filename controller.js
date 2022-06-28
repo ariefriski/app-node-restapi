@@ -50,3 +50,20 @@ exports.postData = (req, res) => {
   );
 };
 
+exports.updateData = (req, res) => {
+  let nim = req.body.nim;
+  let nama = req.body.nama;
+  let jurusan = req.body.jurusan;
+  let id = req.params.id;
+  connection.query(
+    "UPDATE mahasiswa SET nim=?, nama=?, jurusan=? WHERE id_mahasiswa = ?",
+    [nim, nama, jurusan, id],
+    (error, rows, fields) => {
+      if (error) {
+        console.log(error);
+      } else {
+        response.ok("Update data sukses", res);
+      }
+    }
+  );
+};
